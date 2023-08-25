@@ -1,0 +1,20 @@
+
+This service is a payment gateway for merchants to process payments
+
+The acquiring bank that will process the payment is simulated in this service and will return insufficient funds if the amount is higher than 50 pounds
+
+Ths service is developed using java 11 , gradle and Spring Boot and will use an h2 in memory database.
+
+The service can be run with ./gradlew bootRun and should be testable through local swagger ui : http://localhost:9999/swagger-ui.html
+
+The details of payments are saved to the in memory database with encryption
+
+
+
+The service does NOT have login feature, there should be a separate login with oauth that the vendors use to login and get a token with, which will be used by this service to authenticate and authorize the vendor.
+
+The service needs end to end testing for its functionalities that can be set up with a framework like Cucumber
+
+
+
+
