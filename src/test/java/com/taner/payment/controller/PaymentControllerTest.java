@@ -10,7 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.taner.payment.model.PaymentDetailsResponse;
 import com.taner.payment.model.PaymentResult;
 import com.taner.payment.service.PaymentService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -54,7 +54,7 @@ public class PaymentControllerTest {
         this.mockMvc.perform(post("/api/payment").contentType(MediaType.APPLICATION_JSON).content("{\n" +
                         "  \"amount\": 55,\n" +
                         "  \"cardHolder\": \"string\",\n" +
-                        "  \"cardNumber\": \"1234123412341234\",\n" +
+                        "  \"cardNumber\": \"1234123441234\",\n" +
                         "  \"currency\": \"GBP\",\n" +
                         "  \"cvv\": \"123\",\n" +
                         "  \"expirationDate\": \"11/03\"\n" +
@@ -75,7 +75,7 @@ public class PaymentControllerTest {
                 .andExpect(jsonPath("cvv").value("123"))
                 .andExpect(jsonPath("expirationDate").value("10/10"))
                 .andExpect(jsonPath("amount").value("10"))
-                .andExpect(jsonPath("status").value("SUCESS"))
+                .andExpect(jsonPath("status").value("SUCCESS"))
                 .andExpect(jsonPath("currency").value("GBP"));
     }
 
